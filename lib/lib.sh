@@ -88,6 +88,21 @@ system_ipv4() {
     [ ! -z ${IP} ] && echo ${IP} || echo
 }
 
+# 返回公网ip和ip归属地
+# [root@serialt ~]# curl -L ip.tool.lu
+# 当前IP: 218.82.138.187
+# 归属地: 中国 上海 上海市
+# 
+GetIPAndLocation(){
+    curl -L ip.tool.lu
+}
+
+# 查询IP的归属地 $1为ip
+# [root@serialt ~]# GetIPLocation 223.5.5.5
+# 中国  浙江省 杭州市 阿里云
+GetIPLocation(){
+    curl -s  https://ip.cn/index.php?ip=$1 | grep 'id="tab0_address"'  | awk -F '<' '{print $2}' | awk -F'>' '{print $2}'
+}
 
 #如果本地ip为私有地址，将返回公有地址
 system_ipv4_pub() {
