@@ -10,8 +10,8 @@
 # ******************************************************
 
 accounts=(
-  client3,ccc
-  client4,ddd
+    client3,ccc
+    client4,ddd
 )
 
 ### openvpn 配置区域
@@ -27,15 +27,15 @@ OVPN_DIR="/tmp/openvpn"
 # 创建key
 # $1 用户证书名
 create_key() {
-  [[ ! -d ${EASY_RSA_DIR} ]] && exit 55
-  cd ${EASY_RSA_DIR}/ && ./easyrsa build-client-full $1 nopass
+    [[ ! -d ${EASY_RSA_DIR} ]] && exit 55
+    cd ${EASY_RSA_DIR}/ && ./easyrsa build-client-full $1 nopass
 }
 
 # 创建配置文件模版
 # $1 用户名
 create_ovpn() {
-  [[ ! -f ${OVPN_DIR} ]] && mkdir -p ${OVPN_DIR}
-  cat >${OVPN_DIR}/$1.ovpn <<EOF
+    [[ ! -f ${OVPN_DIR} ]] && mkdir -p ${OVPN_DIR}
+    cat >${OVPN_DIR}/$1.ovpn <<EOF
 client
 dev tun
 proto tcp
@@ -53,12 +53,12 @@ EOF
 # 获取证书并插入到 .ovpn 的配置文件里
 # $1 用户名
 insert_file() {
-  ca=$(cat ${EASY_RSA_DIR}/pki/ca.crt)
-  user_crt=$(cat ${EASY_RSA_DIR}/pki/issued/$1.crt)
-  user_key=$(cat ${EASY_RSA_DIR}/pki/private/$1.key)
-  ta=$(cat ${EASY_RSA_DIR}/ta.key)
+    ca=$(cat ${EASY_RSA_DIR}/pki/ca.crt)
+    user_crt=$(cat ${EASY_RSA_DIR}/pki/issued/$1.crt)
+    user_key=$(cat ${EASY_RSA_DIR}/pki/private/$1.key)
+    ta=$(cat ${EASY_RSA_DIR}/ta.key)
 
-  cat >>${OVPN_DIR}/$1.ovpn <<EOF
+    cat >>${OVPN_DIR}/$1.ovpn <<EOF
 <ca> 
 ${ca}
 </ca>
@@ -78,10 +78,10 @@ EOF
 
 ## main
 for aobj in ${accounts[@]}; do
-  arr=(${aobj//,/ })
-  actName=${arr[0]}
+    arr=(${aobj//,/ })
+    actName=${arr[0]}
 
-  create_ovpn ${actName}
-  create_key ${actName}
-  insert_file ${actName}
+    create_ovpn ${actName}
+    create_key ${actName}
+    insert_file ${actName}
 done

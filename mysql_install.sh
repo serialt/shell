@@ -7,15 +7,15 @@ chown -R mysql.mysql /usr/local/mysql
 mv /etc/my.cnf /etc/my.cnf.bak &>/dev/null
 rm -rf /usr/local/mysql/data
 /usr/local/mysql/bin/mysqld --user=mysql --initialize --datadir=/usr/local/mysql/data &>/tmp/mypass.txt
-mypass=`awk '/password/{print $NF}' /tmp/mypass.txt`
+mypass=$(awk '/password/{print $NF}' /tmp/mypass.txt)
 cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld
 chkconfig --add mysqld
-cat >/etc/profile.d/mysql.sh<<EOF
+cat >/etc/profile.d/mysql.sh <<EOF
 MYSQL_HOME=/usr/local/mysql
 PATH=\$MYSQL_HOME/bin:\$PATH
 export PATH MYSQL_HOME 
 EOF
-cat >/etc/my.cnf<<EOF
+cat >/etc/my.cnf <<EOF
 [mysqld]
 socket=/tmp/mysql.sock
 [mysql]
