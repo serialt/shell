@@ -88,14 +88,16 @@ fi
 
 installExporter(){
     node_path=$(which node_exporter)
-    if [[ $? -eq 0 ]];then
-        node_exporter --version
+    if [[ $? -eq 0 ]] || [[ -d ${NODE_EXPORTER_HOME} ]];then
+        node_exporter --version 
+        ${NODE_EXPORTER_HOME}/node_exporter --version
         echo_red "node_exporter is installed, are you sure to remove to continue ? [y/n]"
         read yes_or_not
         [[ ${yes_or_not} != 'y' ]] && echo-red "input error" && exit
-    fi    
+    fi
 
-    \mv ${node_path} /tmp/
+
+    \mv ${node_path} /tmp/ 
     cd  ${NODE_EXPORTER_HOME} && rm -rf  ./node_exporter
 
     which wget &> /dev/null
@@ -113,9 +115,10 @@ installExporter(){
             ;;
         esac
     fi 
-
-    wget -P /tmp/ ${NODE_EXPORTER_DOWNLOAD_URL}
     fileName=$(echo ${NODE_EXPORTER_DOWNLOAD_URL} | awk -F'/' '{print $NF}')
+
+    [[ ! -f /tmp/${fileName} ]] && wget -P /tmp/ ${NODE_EXPORTER_DOWNLOAD_URL}
+    
     tar -xf /tmp/${fileName} -C /tmp/
     EXPORTER_NAME=$(echo ${fileName} | awk -F'.tar.gz' '{print $1}')
     [[ ! -d ${NODE_EXPORTER_HOME} ]] && mkdir -p ${NODE_EXPORTER_HOME} 
