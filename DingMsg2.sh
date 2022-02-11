@@ -13,7 +13,7 @@
 # ******************************************************
 
 logFile='/var/log/DingRobot/DingRobot.log'
-cc() {}
+
 
 ### 创建钉钉机器人消息日志轮转
 logRotate() {

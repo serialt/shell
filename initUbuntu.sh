@@ -63,29 +63,10 @@ EOF
     systemctl restart docker
 }
 
-function createSwap {
-    echo "创建swap分区"
-    [[ -f /swapfile ]] && return
-    free -h
-    fallocate -l 2G /swapfile
-    ls -lh /swapfile
-    chmod 600 /swapfile
-    ls -lh /swapfile
-    mkswap /swapfile
-    swapon /swapfile
-    swapon --show
-    cp /etc/fstab{,.ori}
-    echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
-    cat /etc/fstab
-    cat /proc/sys/vm/swappiness
-    sysctl vm.swappiness=10
-    cp /etc/sysctl.conf{,.ori}
-    echo 'vm.swappiness=10' | sudo tee -a /etc/sysctl.conf
-    sysctl -p
-}
 
 function installEssential {
-    apt-get install -y unzip nfs-common python3-dev python3-venv redis-tools postgresql-client-10
+    apt-get install -y unzip python3-dev python3-venv postgresql-client-10
+    # 保护重启后hostname不发生变化
     sed -i '17s/false/true/' /etc/cloud/cloud.cfg
 }
 
@@ -100,6 +81,36 @@ timeout = 120
 EOF
 }
 
+function history(){
+	if ! grep "HISTTIMEFORMAT" /etc/profile >/dev/null 2>&1
+	then 
+        cat >> /etc/profile <<EOF
+UserIP=$(who -u am i | cut -d"("  -f 2 | sed -e "s/[()]//g")
+export HISTTIMEFORMAT="[%F %T] [`whoami`] [${UserIP}] " 
+EOF
+	fi
+	sed -i "s/HISTSIZE=1000/HISTSIZE=999999999/" /etc/profile
+}
+
+
+function Fail2ban(){
+    cat >/etc/motd <<EOF
+
+        Welcome to IMAU
+
+EOF
+    apt install -y fail2ban
+    cat >> /etc/fail2ban/jail.conf <<EOF
+[sshd]
+port    = ssh
+logpath = %(sshd_log)s
+backend = %(sshd_backend)s
+EOF
+    systemctl restart fail2ban
+    systemctl enable fail2ban
+    
+}
+
 function configNTP {
     timedatectl set-timezone Asia/Shanghai
     timedatectl set-ntp yes
@@ -109,7 +120,6 @@ function configNTP {
 
 function MAIN {
     changeAptSource && updateAptPkgs
-    createSwap
     installEssential
     installDocker
     installDockerCompose
