@@ -1,7 +1,7 @@
 #!/bin/bash
 # ******************************************************
 # Author       	:	serialt
-# Email        	:	serialt@qq.com
+# Email        	:	tserialt@gmail.com
 # Filename     	:	add_user_imau.sh
 # Version      	:	v1.0
 # Created Time 	:	2020-08-02 14:59
@@ -15,7 +15,7 @@
 #set -o pipefail
 set -u
 
-SSH_PUBLIC_KEY='ssh key serialt-dev serialt@qq.com'
+SSH_PUBLIC_KEY='ssh key serialt-dev tserialt@gmail.com'
 SSH_USER='imau'
 
 check_os() {

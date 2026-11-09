@@ -1,7 +1,7 @@
 #!/bin/bash
 #2020.1.1
 #kvm2.0
-#serialt  serialt@qq.com
+#serialt  tserialt@gmail.com
 #kvm-manager
 #snapshot need guestfish
 #image type is .qcow2

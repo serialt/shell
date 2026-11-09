@@ -1,7 +1,7 @@
 #!/bin/bash
 # ******************************************************
 # Author       	:	serialt 
-# Email        	:	serialt@qq.com
+# Email        	:	tserialt@gmail.com
 # Filename     	:   makefile
 # Version      	:	v1.0
 # Created Time 	:	2021-06-25 10:47

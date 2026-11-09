@@ -3,7 +3,7 @@
 # Description   : IMAU of Serialt
 # Version       : 0.1
 # Author        : serialt
-# Email         : serialt@qq.com
+# Email         : tserialt@gmail.com
 # Github        : https://github.com/serialt
 # Created Time  : 2022-02-10 11:34:11
 # Last modified : 2022-02-11 17:53:14

@@ -1,7 +1,7 @@
 #!/bin/bash
 # ******************************************************
 # Author       	:	serialt
-# Email        	:	serialt@qq.com
+# Email        	:	tserialt@gmail.com
 # Filename     	:	DingMsg.sh
 # Version      	:	v1.0
 # Created Time 	:	2020-09-20 19:53

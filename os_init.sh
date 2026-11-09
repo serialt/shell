@@ -3,7 +3,7 @@
 # Description   : init the os
 # Version       : 1.0
 # Author        : serialt
-# Email         : serialt@qq.com
+# Email         : tserialt@gmail.com
 # Github        : https://github.com/serialt
 # Created Time  : 2021-12-13 16:18:23
 # Last modified : 2021-12-13 18:21:34

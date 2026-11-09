@@ -1,7 +1,7 @@
 #!/bin/bash
 # ******************************************************
 # Author       	:	serialt
-# Email        	:	serialt@qq.com
+# Email        	:	tserialt@gmail.com
 # Filename     	:	docker_install.sh
 # Version      	:	v1.0
 # Created Time 	:	2020-07-05 21:06

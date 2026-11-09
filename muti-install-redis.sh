@@ -1,6 +1,6 @@
 #!/bin/bash
 #单机部署redis
-#serialt tang serialt@qq.com
+#serialt tang tserialt@gmail.com
 #2020-02
 
 ftp_server=192.168.122.15

@@ -1,7 +1,7 @@
 #!/bin/bash
 # ******************************************************
 # Author       	:	serialt 
-# Email        	:	serialt@qq.com
+# Email        	:	tserialt@gmail.com
 # Filename     	:	openvpn-key.ssh
 # Version      	:	v1.0
 # Created Time 	:	2020-08-02 14:59

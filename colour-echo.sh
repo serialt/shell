@@ -1,5 +1,5 @@
 #!/bin/bash
-#serialt  serialt@qq.com
+#serialt  tserialt@gmail.com
 #输出文字带有颜色
 
 green_col='\E[0;32m'

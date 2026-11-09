@@ -1,7 +1,7 @@
 #!/bin/bash
 # ******************************************************
 # Author       	:	serialt
-# Email        	:	serialt@qq.com
+# Email        	:	tserialt@gmail.com
 # Filename     	:	openvpn.sh
 # Created Time 	:	2021-10-20 14:55
 # Last modified	:	2021-10-20 14:55
@@ -52,7 +52,7 @@ EASYRSA_REQ_COUNTRY="CN"
 EASYRSA_REQ_PROVINCE="Shanghai"
 EASYRSA_REQ_CITY="Shanghai"
 EASYRSA_REQ_ORG="IMAU"
-EASYRSA_REQ_EMAIL="serialt@qq.com"
+EASYRSA_REQ_EMAIL="tserialt@gmail.com"
 EASYRSA_REQ_OU="OPS"
 
 EASYRSA_KEY_SIZE="4096"    # rsa加密的长度,2048/4096

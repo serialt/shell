@@ -1,5 +1,5 @@
 #!/bin/bash
-#serialt serialt@qq.com
+#serialt tserialt@gmail.com
 #openstack rokcy
 #脚本在controller节点上运行
 {

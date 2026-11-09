@@ -1,7 +1,7 @@
 #!/bin/bash
 # ******************************************************
 # Author       	:	serialt 
-# Email        	:	serialt@qq.com
+# Email        	:	tserialt@gmail.com
 # Filename     	:	gitea_bak.sh
 # Created Time 	:	2021-10-31 21:13
 # Last modified	:	2021-10-31 21:13

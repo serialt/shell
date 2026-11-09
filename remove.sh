@@ -1,6 +1,6 @@
 # ******************************************************
 # Author       	:	serialt 
-# Email        	:	serialt@qq.com
+# Email        	:	tserialt@gmail.com
 # Filename     	:	remove.sh
 # Created Time 	:	2021-10-03 14:47
 # Last modified	:	2021-10-03 14:47

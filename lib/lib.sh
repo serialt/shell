@@ -1,7 +1,7 @@
 #!/bin/bash
 # *********************************************************
 # Author       	:	serialt 
-# Email        	:	serialt@qq.com
+# Email        	:	tserialt@gmail.com
 # Filename     	:	lib.sh
 # Version      	:	v1.0
 # Created Time 	:	2020-11-30 16:08

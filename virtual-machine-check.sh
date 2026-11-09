@@ -1,5 +1,5 @@
 #!/bin/bash
-#serialt serialt@qq.com
+#serialt tserialt@gmail.com
 #centos7开启嵌套虚拟化
 
 green_col='\E[0;32m'
